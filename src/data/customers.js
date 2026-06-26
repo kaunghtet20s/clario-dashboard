@@ -1,0 +1,107 @@
+// Customer management data
+export const customers = [
+  {
+    id: 'CUS-9001',
+    name: 'Ava Chen',
+    email: 'ava.chen@northwind.io',
+    company: 'Northwind Labs',
+    plan: 'Enterprise',
+    status: 'Active',
+    mrr: 1290,
+    lastActive: '2 min ago',
+  },
+  {
+    id: 'CUS-9002',
+    name: 'Marcus Hill',
+    email: 'm.hill@vertexfin.com',
+    company: 'Vertex Finance',
+    plan: 'Pro',
+    status: 'Active',
+    mrr: 490,
+    lastActive: '18 min ago',
+  },
+  {
+    id: 'CUS-9003',
+    name: 'Lena Brooks',
+    email: 'lena@bloomco.design',
+    company: 'Bloom & Co',
+    plan: 'Pro',
+    status: 'Trial',
+    mrr: 0,
+    lastActive: '1 hour ago',
+  },
+  {
+    id: 'CUS-9004',
+    name: 'Diego Santos',
+    email: 'diego.s@pulsehealth.org',
+    company: 'Pulse Health',
+    plan: 'Starter',
+    status: 'Active',
+    mrr: 149,
+    lastActive: '3 hours ago',
+  },
+  {
+    id: 'CUS-9005',
+    name: 'Priya Nair',
+    email: 'priya@cobaltsys.dev',
+    company: 'Cobalt Systems',
+    plan: 'Enterprise',
+    status: 'Churned',
+    mrr: 0,
+    lastActive: '12 days ago',
+  },
+  {
+    id: 'CUS-9006',
+    name: 'Tom Walker',
+    email: 'tom.w@lumenretail.com',
+    company: 'Lumen Retail',
+    plan: 'Pro',
+    status: 'Active',
+    mrr: 490,
+    lastActive: '26 min ago',
+  },
+  {
+    id: 'CUS-9007',
+    name: 'Hana Kim',
+    email: 'hana.kim@driftmail.co',
+    company: 'Drift Studio',
+    plan: 'Starter',
+    status: 'Trial',
+    mrr: 0,
+    lastActive: '5 hours ago',
+  },
+  {
+    id: 'CUS-9008',
+    name: 'Oliver Reed',
+    email: 'oliver@quantumgrid.ai',
+    company: 'Quantum Grid',
+    plan: 'Enterprise',
+    status: 'Active',
+    mrr: 1290,
+    lastActive: 'Yesterday',
+  },
+  {
+    id: 'CUS-9009',
+    name: 'Carla Mendez',
+    email: 'carla.m@stellarpay.io',
+    company: 'StellarPay',
+    plan: 'Starter',
+    status: 'Churned',
+    mrr: 0,
+    lastActive: '21 days ago',
+  },
+]
+
+export const customerFilters = ['All', 'Active', 'Trial', 'Churned']
+
+export const planStyles = {
+  Enterprise: 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-300',
+  Pro: 'bg-cyan-50 text-cyan-600 dark:bg-cyan-500/10 dark:text-cyan-300',
+  Starter: 'bg-ink-100 text-ink-600 dark:bg-ink-800 dark:text-ink-300',
+}
+
+export const customerStatusStyles = {
+  Active: 'bg-emerald-500',
+  Trial: 'bg-amber-500',
+  Churned: 'bg-rose-500',
+}
