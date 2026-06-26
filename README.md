@@ -2,6 +2,8 @@
 
 A clean, modern, minimalist SaaS analytics dashboard built with **React + Vite**, **Tailwind CSS**, **Framer Motion**, and **Recharts**. It ships with a light/dark theme, animated KPI cards, interactive charts, a sortable projects table, a drag‑and‑drop Kanban board, customer management, messaging, a calendar, a billing/pricing page, and full authentication UI.
 
+**🔗 Live demo: [clario-dashboard-tau.vercel.app](https://clario-dashboard-tau.vercel.app)** — sign in with `alex@clario.io` / `password`.
+
 ![Clario](public/favicon.svg)
 
 ## ✨ Features
@@ -96,11 +98,27 @@ Auth talks to a real HTTP API over `fetch` — there are **no fake `setTimeout` 
 
 **Demo credentials:** `alex@clario.io` / `password` (or register a new account).
 
-**Swapping in a real backend:** remove `mockAuthApi()` from [`vite.config.js`](vite.config.js) and set `VITE_API_URL` (see [`.env.example`](.env.example)) to your server's origin. The frontend hits the same endpoint paths — no other changes needed.
+The endpoints are served two ways, both implementing the **same paths**:
+- **Dev / preview** → a Vite middleware plugin ([`mock/auth-plugin.js`](mock/auth-plugin.js)).
+- **Production (Vercel)** → serverless functions in [`api/auth/`](api/auth) (stateless, JWT‑shaped tokens).
+
+**Swapping in your own backend:** remove `mockAuthApi()` from [`vite.config.js`](vite.config.js) (and the `api/` folder), then set `VITE_API_URL` (see [`.env.example`](.env.example)) to your server's origin. The frontend hits the same endpoint paths — no other changes needed.
+
+## 🚢 Deploy
+
+This repo is configured for **Vercel** out of the box ([`vercel.json`](vercel.json) handles SPA routing; [`api/`](api) holds the auth functions):
+
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+Vite auto‑detects (`vite build` → `dist`). Any static host works for the frontend, but the `/api/auth/*` functions need a Node serverless runtime (Vercel, Netlify, etc.) for login to work in production.
 
 ## 📁 Project Structure
 
 ```
+api/                 # Vercel serverless auth functions (login, register, me, …)
 src/
   api/               # fetch client + auth API (login, register, me, logout)
   components/        # Reusable UI (Sidebar, Topbar, StatCard, charts, tables, etc.)
