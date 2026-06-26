@@ -144,7 +144,8 @@ async function handler(req, res, next) {
     // Merge allowed fields only — never let id/password be overwritten here.
     const { id, password, ...rest } = patch
     Object.assign(user, rest)
-    return send(res, 200, { user: publicUser(user) })
+    // Re-issue a token for parity with the production (stateless) backend.
+    return send(res, 200, { user: publicUser(user), token: makeToken(user) })
   }
 
   // POST /api/auth/logout

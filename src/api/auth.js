@@ -35,7 +35,9 @@ export async function fetchMe() {
 }
 
 export async function updateProfileRequest(patch) {
-  const { user } = await apiFetch('/api/auth/me', { method: 'PATCH', body: patch })
+  const { user, token } = await apiFetch('/api/auth/me', { method: 'PATCH', body: patch })
+  // The API may re-issue a token carrying the updated profile (stateless backend).
+  if (token) setToken(token)
   return user
 }
 
